@@ -147,7 +147,7 @@ nofollow:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/syhily/yufan.me.git
+  repo: git@github.com:syhily/yufan.me.git
   branch: gh-pages
 
 # Sitemap
