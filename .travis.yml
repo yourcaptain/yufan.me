@@ -4,7 +4,7 @@ node_js: stable
 
 env:
   global:
-    - secure: "eg05FK8zitTemfTO8fnMihIhgwd5UOKTc/x/a/mATllVutLnsLTdHAf/vh33FDzhNToeQ+k+wHDxsTMDhk9nTF1LpuOJ5Q+kMAvHn59b9dQVM/8/slhB60nEmVa2Sl3jMRjxXLHSdQO79FiHI/OqdzQ+7HZ/LaEMN4J5VxRtx2KPaeypaO159C8S6+EQtyUatCc89nt5OFAh5bmSM2YWvVlwdgQ+7mYaIbQRi2WWID5VziNfHVD/51ekdeyWo5UHhQKjJhvV9nh1L2Ze4sWdfkale7424FUJ9iiJefAEbgpXVEJl1PoXGGShASXX36aIpkiP/qkXjnGKcuwuKO5wSpsgYqnUvTMTkw/c6juntQ7vhLAxO5wN9qqeMfAU+UhYegp0DOQ1v0L1PSi3K8TZrqhH7pUqI/K8+z0VoJWl3EL2+aEpenfoSfaar0rY0pF5FbDIpiReQnEmNgYa2Urhm+C0xr9caSOMqP+uw+osDg0LOHc30yawPfjTdYQ1Cv5hnmpRRMR0yDh6I88PnrBqSQVAN8jsk5oBCp29fpXwRQip1/SFYD3BgCzidkvDRdJy8iYYSTR6itn+usSJiISai0JOZxfyKLz3Sue3ZsAk++CevCkKluuq2HST+T1KI7zrkxExed0Fe2cEnQ/3D8FM+PMc8UVpRRkcQJ+V4fVkF6I="
+    - secure: "Mnfxu43BKbMVJn+PLdQkiT+g+pMUcMw4eRO0UaGftCFYRIvUcuoTmW9VkHTI/JJey09xNZ3IWlGwrPHz3dnDYQyWdy+TgzyzO2Us5ujZXLdHQJezLqNPNY2/mCeEpGedFsqtMfsfI2q6b3Ra0GepC1HrY3WgejoWoc4ZHEEGTvvJAWxpcFuK69Cif33xz/4uM3Ef36mfaHKwVp7WRzxpH5087XYqxF2WEdvHqOLniu2x4ETttJ8LwUcbJaow3m2AP2hzb81zVcIu5lfOPm3ayjOPp/v9pIrTuKtBeeRL8tDxxUOjMSZKZ0BAPo06hOnvYuoAFGXAHU40XM9stL+5t8TSnTxGsyrjlIJvzqQ+E1O9qqBwpfCB4nbxs8QdJZr0ssEdkuNrAyh1iYvnjelY1Jnhbkb7uQhbmdmhe2WyJuhhK6A7dsFiAKL+Et2NjhwYsr+HULvLlNEu/a50LyNUkLsZ+6+hB//fsifzAyo07gsN2kn3eiMnU9aZjmubPH1FsalyIgCiV4W0D4I7wmlK1y+XYlqqXFOAvkHlMuz+cT7o7QRRs13cO34CZ8FRofvcKJE6lfV/t/NfIzbnDInurIgW6eWO3md2lvafvMwc8qwvDcBlxjeauBJ00STpUYGRP2Ku5aLM4xAKlI/XO8Qtjbf7dWi+WHjGCa54CV99weU="
 
 cache:
   apt: true
@@ -20,12 +20,13 @@ before_install:
 
 install:
   - npm install
-  - $(npm bin)/set-up-ssh --key "$encrypted_b9b50c5e0ab8_key" --iv "$encrypted_b9b50c5e0ab8_iv" --path-encrypted-key "id_rsa.enc"
+  - shell/util/set-up-ssh.sh --key "$encrypted_b9b50c5e0ab8_key" --iv "$encrypted_b9b50c5e0ab8_iv" --path-encrypted-key "id_rsa.enc"
 
 before_script:
   - git config --global user.name ${GH_USER_NAME}
   - git config --global user.email ${GH_USER_EMAIL}
 
 script:
+  - hexo algolia --chunk-size=5000 # The HEXO_ALGOLIA_INDEXING_KEY should be encrypted
   - hexo generate
   - hexo deploy
