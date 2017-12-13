@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "hexo": {
-    "version": "3.3.9"
+    "version": "3.4.3"
   },
   "scripts": {
     "preview": "hexo s --open --config _config.preview.yml --silent"
