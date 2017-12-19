@@ -143,6 +143,9 @@ nofollow:
 #  exclude:
 #    - exclude1.com
 
+aplayer:
+  externalLink: https://cat.yufan.me/asserts/APlayer.min.js
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
