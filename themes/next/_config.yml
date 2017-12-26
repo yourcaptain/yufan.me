@@ -253,9 +253,9 @@ post_meta:
 # Dependencies: https://github.com/willin/hexo-wordcount
 post_wordcount:
   item_text: true
-  wordcount: false
+  wordcount: true
   min2read: false
-  separated_meta: true
+  separated_meta: false
 
 # Wechat Subscriber
 #wechat_subscriber:
@@ -421,7 +421,7 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: true
+  enable: false
   app_id: ttx4qog2t4xltn7xmzmnemrewvdipog15jfvx48o1ojvnngn
   app_key: iyjdbdo8tvn385m7vgpg50t8aafw3twuw71mvk5gngtfj7ux
 
