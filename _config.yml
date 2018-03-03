@@ -150,8 +150,8 @@ aplayer:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@git.coding.net:xiaoyu/yufan.me.git
-  branch: master
+  repo: git@github.com:syhily/yufan.me.git
+  branch: gh-pages
 
 # Sitemap
 sitemap:
